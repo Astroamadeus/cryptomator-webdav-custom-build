@@ -1,4 +1,4 @@
-name: docker-build-push2
+name: custom-docker-build-push
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -11,8 +11,8 @@ on:
     paths:
       # Adjust paths depending on where
       # docker-image files are stored
-      - '/**'
-      #- 'docker-image/**'
+      #- '/**'
+      - 'docker-image/**'
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -75,8 +75,8 @@ jobs:
         with:
           # Adjust context depending on where
           # docker-image files are stored
-          context: .
-          #context: docker-image
+          #context: .
+          context: docker-image
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
