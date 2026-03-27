@@ -79,7 +79,7 @@ echo "Starting cryptomator-cli in background, will share on: webdav://${CRYPTOMA
 if [ "$CRYPTOMATOR_DEBUG" -eq 1 ]; then
     printf "cryptomator-cli command: /opt/cryptomator-cli/bin/cryptomator-cli unlock \
   --mounter=org.cryptomator.frontend.webdav.mount.FallbackMounter \
-  --volumeName='vault' \
+  --volumeId='vault' \
   --loopbackPort=\"${CRYPTOMATOR_LISTEN_PORT}\" \
   --password:file=\"${CRYPTOMATOR_INTERNAL_PASSFILE_LOC}\" \
   /vault &"
@@ -87,7 +87,7 @@ fi
 
 /opt/cryptomator-cli/bin/cryptomator-cli unlock \
   --mounter=org.cryptomator.frontend.webdav.mount.FallbackMounter \
-  --volumeName='vault' \
+  --volumeId='vault' \
   --loopbackPort="${CRYPTOMATOR_LISTEN_PORT}" \
   --password:file="${CRYPTOMATOR_INTERNAL_PASSFILE_LOC}" \
   /vault &
